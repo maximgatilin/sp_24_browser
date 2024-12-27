@@ -1,0 +1,15 @@
+<link rel="stylesheet" type="text/css" href="styles.css">
+<pre class="code">
+	const handler = (event) => console.log(event.type, ' fired');
+	document.addEventListener('myTestEvent', handler);
+
+	document.dispatchEvent(new Event('myTestEvent'));
+
+	document.removeEventListener('myTestEvent', handler);
+
+	document.addEventListener('click', handler);
+	document.removeEventListener('click', handler);
+
+	document.onclick = handler;
+	document.onclick = undefined
+</pre>

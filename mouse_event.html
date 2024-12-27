@@ -1,0 +1,68 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="blue-div" id="container">
+	<button id="button">Click me</button>
+</div>
+<div class="expand-container">
+	<details>
+  <summary>mouseover/mouseout</summary>
+  <main>
+  	<pre class="code">
+	const container = document.querySelector('#container');
+
+	// Создадим обработчик
+
+	const handler = (event) => console.log(event.type, event.target, event.currentTarget);
+
+	// Установим обработчик на mouseover / mouseout
+
+	container.addEventListener('mouseover', handler);
+	container.addEventListener('mouseout', handler);
+  	</pre>
+  </main>
+</details>
+<details>
+  <summary>mouseenter/mouseleave</summary>
+  <main>
+  	<pre class="code">
+	const container = document.querySelector('#container');
+
+	// Создадим обработчик
+
+	const handler = (event) => console.log(event.type, event.target, event.currentTarget);
+
+	// Установим обработчик на mouseenter / mouseleave
+
+	container.addEventListener('mouseenter', handler);
+	container.addEventListener('mouseleave', handler);
+  	</pre>
+  </main>
+</details>
+<details>
+  <summary>mousedown/mouseup</summary>
+  <main>
+  	<pre class="code">
+	container.removeEventListener('mouseenter', handler);
+	container.removeEventListener('mouseleave', handler);
+
+	container.addEventListener('mousedown', handler);
+	container.addEventListener('mouseup', handler);
+  	</pre>
+  </main>
+</details>
+<details>
+  <summary>mousemove</summary>
+  <main>
+  	<pre class="code">
+	container.addEventListener('mousemove', handler);
+  	</pre>
+  </main>
+</details>
+</div>
+</body>
+</html>

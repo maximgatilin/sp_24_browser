@@ -1,0 +1,41 @@
+<link rel="stylesheet" type="text/css" href="styles.css">
+<textarea id="textarea" rows="10" cols="30"></textarea>
+<div class="expand-container">
+<details>
+  <summary>logging</summary>
+  <main>
+  	<pre class="code">
+	const textarea = document.querySelector('#textarea');
+	const firstHandler = (event) => {
+		if (event.altKey || event.ctrlKey || event.shiftKey || event.metaKey) {
+			console.log(
+				'System keys:',
+				event.altKey ? 'Alt' : '',
+				event.ctrlKey ? 'Ctrl' : '',
+				event.shiftKey ? 'Shift' : '',
+				event.metaKey ? 'Meta' : '',
+			);
+		}
+	}
+	textarea.addEventListener('keydown', firstHandler);
+
+  	</pre>
+  </main>
+</details>
+<details>
+  <summary>sending message</summary>
+  <main>
+  	<pre class="code">
+  	textarea.removeEventListener('keydown', firstHandler);
+	const messageHander = (event) => {
+		if (event.key === 'Enter' && !event.shiftKey) {
+			event.preventDefault();
+			console.log('Sending message: ', event.currentTarget.value);
+			event.currentTarget.value = '';
+		}
+	}
+	textarea.addEventListener('keydown', messageHander);
+  	</pre>
+  </main>
+</details>
+</div>

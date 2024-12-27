@@ -1,0 +1,63 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div id="container" some-attr="some-value">
+	Текст перед кнопкой 
+	<button id="button">Текст <b>на</b> кнопке</button>
+	Текст после кнопки 
+	<div class="some-class">
+		<a href="#">Ссылочка</a>
+	</div>
+</div>
+<div class="expand-container">
+<details>
+  <summary>childNodes</summary>
+  <main>
+  	<pre class="code">
+	const container = document.querySelector('#container');
+	container.childNodes
+
+	container.appendChild(new Text('Новый текст'));
+	container.childNodes
+
+	container.attributes
+
+	container.attributes['some-attr'].childNodes
+	container.attributes['some-attr'].appendChild(new Text('Новый текст'))
+  	</pre>
+  </main>
+</details>
+<details>
+  <summary>children</summary>
+  <main>
+  	<pre class="code">
+	const container = document.querySelector('#container');
+	console.log('Ноды:', container.childNodes);
+	console.log('Элементы:', container.children);
+
+	container.appendChild(new Text('Новый текст'));
+	console.log('Ноды:', container.childNodes);
+	console.log('Элементы:', container.children);
+
+	container.appendChild(document.createElement('div'));
+	console.log('Ноды:', container.childNodes);
+	console.log('Элементы:', container.children);
+
+	container.append(document.createElement('div'));
+	console.log('Ноды:', container.childNodes);
+	console.log('Элементы:', container.children);
+
+	const btn = container.querySelector('button');
+	console.log(btn);
+	console.log('Ноды:', btn.childNodes);
+	console.log('Элементы:', btn.children);
+  	</pre>
+  </main>
+</details>
+</div>
+</body>
+</html>

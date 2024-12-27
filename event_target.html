@@ -1,0 +1,28 @@
+<link rel="stylesheet" type="text/css" href="styles.css">
+<button id="button">Click me</button>
+<div class="expand-container">
+<details>
+  <summary>doc listener</summary>
+  <main>
+  	<pre class="code">
+	const handler = (event) => {
+		console.log('event.target:', event.target);
+		console.log('event.currentTarget:', event.currentTarget);
+	}
+
+
+	document.addEventListener('click', handler);
+  	</pre>
+  </main>
+</details>
+<details>
+  <summary>button listener</summary>
+  <main>
+  	<pre class="code">
+	document.removeEventListener('click', handler);
+	const btn = document.querySelector('#button');
+	btn.addEventListener('click', handler);
+  	</pre>
+  </main>
+</details>
+</div>

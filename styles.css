@@ -1,0 +1,23 @@
+.code {
+	border: 1px solid #ccc;
+	background: #ebebeb;
+	padding: 20px 0;
+}
+
+.blue-div {
+	background: blue;
+	margin: 100px auto;
+	height: 200px;
+	padding: 20px;
+	width: 300px;
+
+	button {
+		margin: 0 auto;
+		display: block;
+		margin-top: 50px;
+	}
+}
+
+.expand-container {
+	padding: 20px;
+}

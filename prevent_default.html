@@ -1,0 +1,49 @@
+<link rel="stylesheet" type="text/css" href="styles.css">
+<a id="hh-link" href="https://hh.ru" target="_blank">hh.ru</a>
+<br />
+<input type="text" id="input-text" />
+<br />
+<input type="checkbox" id="input-checkbox" />
+<div class="expand-container">
+<details>
+  <summary>link</summary>
+  <main>
+  	<pre class="code">
+	const link = document.querySelector('#hh-link');
+	link.addEventListener('click', (event) => {
+		event.preventDefault();
+		console.log('Link default behaviour is canceled');
+	});
+  	</pre>
+  </main>
+</details>
+<details>
+  <summary>input</summary>
+  <main>
+  	<pre class="code">
+	const input = document.querySelector('#input-text');
+	input.addEventListener('keypress', (event) => {
+		if (event.keyCode < 48 || event.keyCode > 57) {
+			event.preventDefault();
+			console.log('Only numbers are allowed for input');
+		}
+	});
+  	</pre>
+  </main>
+</details>
+<details>
+  <summary>checkbox</summary>
+  <main>
+  	<pre class="code">
+	const checkInput = document.querySelector('#input-checkbox');
+	checkInput.addEventListener('click', (event) => {
+		if (event.altKey) {
+			return;
+		}
+		event.preventDefault();
+		console.log('Checkbox is working only with alt pressed');
+	})
+  	</pre>
+  </main>
+</details>
+</div>

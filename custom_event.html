@@ -1,0 +1,61 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div class="expand-container">
+		<details>
+  <summary>custom event</summary>
+  <main>
+  	<pre class="code">
+	// Создаем кастомное событие
+
+	const myCustomEvent = new CustomEvent('my-custom-event', {
+		detail: {
+			foo: 'bar'
+		}
+	});
+
+	// Добавим обработчик на document
+
+	document.addEventListener('my-custom-event', () => {
+		console.log(event.type, 'fired on document!', event.detail);
+	});
+
+	// Вызовем событие на document
+
+	console.log(document.dispatchEvent(myCustomEvent));
+  	</pre>
+  </main>
+</details>
+		<details>
+  <summary>prevent default</summary>
+  <main>
+  	<pre class="code">
+	// Создаем кастомное событие
+
+	const myCustomEvent = new CustomEvent('my-custom-event', {
+		cancelable: true,
+		detail: {
+			foo: 'bar'
+		}
+	});
+
+	// Добавим обработчик на document
+
+	document.addEventListener('my-custom-event', (event) => {
+		console.log(event.type, 'fired on document!', event.detail);
+		event.preventDefault();
+	});
+
+	// Вызовем событие на document
+
+	console.log(document.dispatchEvent(myCustomEvent));
+  	</pre>
+  </main>
+</details>
+	</div>
+</body>
+</html>

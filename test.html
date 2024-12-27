@@ -1,0 +1,40 @@
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<a id="link" download href="https://storage.yandexcloud.net/call-tracking/1713936155130ct791305056936hg8pv.wav?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20241223T074001Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=YCAJEe2gHbXS13RsLas9-fimH%2F20241223%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=9b23199ce6a6a8ee64d8798b477bae4de8b5c8f1f4c8f7bada4a8267525663a5">Ссылка на файл</a>
+<script>
+	const link = document.querySelector('#link');
+
+	link.addEventListener('click', (e) => {
+		e.preventDefault();
+		link.textContent = "Загружаем..."
+		setTimeout(() => {
+			fetch('https://storage.yandexcloud.net/call-tracking/1713936155130ct791305056936hg8pv.wav?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20241223T074001Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=YCAJEe2gHbXS13RsLas9-fimH%2F20241223%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=9b23199ce6a6a8ee64d8798b477bae4de8b5c8f1f4c8f7bada4a8267525663a5')
+		// check to make sure you didn't have an unexpected failure (may need to check other things here depending on use case / backend)
+	  .then(resp => resp.status === 200 ? resp.blob() : Promise.reject('something went wrong'))
+	  .then(blob => {
+	    const url = window.URL.createObjectURL(blob);
+	    const a = document.createElement('a');
+	    a.style.display = 'none';
+	    a.href = url;
+	    // the filename you want
+	    a.download = '1713936155130ct791305056936hg8pv.wav';
+	    document.body.appendChild(a);
+	    a.click();
+	    window.URL.revokeObjectURL(url);
+	    // or you know, something with better UX...
+	    link.textContent = "Загрузили!"
+	  })
+	  .catch(() => alert('oh no!'));
+			}, 3000);
+		});
+</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div>
+	<button id="button">Click me</button>
+</div>
+<div class="expand-container">
+<details>
+  <summary>with true</summary>
+  <main>
+  	<pre class="code">
+	const elems = document.querySelectorAll('html,body,div,button');
+
+	const eventPhases = {
+		1: 'capturing phase',
+		2: 'target phase',
+		3: 'bubbling phase',
+	};
+
+	const handler = (event) => 
+		console.log(
+			'Handling event',
+			event.type,
+			'on element',
+			event.currentTarget.tagName,
+			`(click on ${event.target.tagName})`,
+			eventPhases[event.eventPhase]
+		);
+
+	elems.forEach((elem) => elem.addEventListener('click', handler, true));
+  	</pre>
+  </main>
+</details>
+<details>
+  <summary>without true</summary>
+  <main>
+  	<pre class="code">
+	const elems = document.querySelectorAll('html,body,div,button');
+
+	const eventPhases = {
+		1: 'capturing phase',
+		2: 'target phase',
+		3: 'bubbling phase',
+	};
+
+	const handler = (event) => 
+		console.log(
+			'Handling event',
+			event.type,
+			'on element',
+			event.currentTarget.tagName,
+			`(click on ${event.target.tagName})`,
+			eventPhases[event.eventPhase]
+		);
+
+	elems.forEach((elem) => elem.addEventListener('click', handler));
+  	</pre>
+  </main>
+</details>
+<details>
+  <summary>stop propagation</summary>
+  <main>
+  	<pre class="code">
+	document.body.addEventListener('click', () => {
+		console.log('body click!');
+	});
+
+	const btn = document.querySelector('button');
+	button.addEventListener('click', (event) => {
+		console.log('button click!');
+		if (event.altKey) {
+			return;
+		}
+		event.stopPropagation();
+	});
+
+  	</pre>
+  </main>
+</details>
+</div>
+</body>
+</html>

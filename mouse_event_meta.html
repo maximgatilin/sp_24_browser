@@ -1,0 +1,27 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="blue-div" id="container">
+	<button id="button">Click me</button>
+</div>
+<pre class="code"> 
+	const container = document.querySelector('#container');
+
+	const handler = (event) => {
+		console.log('button', event.button);
+		console.log('clientX / clientY', event.clientX, event.clientY);
+		console.log('offsetX / offsetY', event.offsetX, event.offsetY);
+		console.log('pageX / pageY', event.pageX, event.pageY);
+		console.log('screenX / screenY', event.screenX, event.screenY);
+		console.log('-----------------------------------------------------');
+	}
+
+	container.addEventListener('mousedown', handler);
+</pre>
+
+</body>
+</html>

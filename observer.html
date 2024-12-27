@@ -1,0 +1,26 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<button id="button">Кнопка</button>
+<pre class="code">
+	const button = document.querySelector('button');
+	const observer = new IntersectionObserver(
+		(entries) => {
+			console.log('\nCallback вызван');
+			console.log('isIntersecting', entries[0].isIntersecting);
+			console.log('intersectionRatio', entries[0].intersectionRatio);
+		},
+		{
+			threshold: 0.5,
+		}
+	);
+	observer.observe(button);
+</pre>
+<div style="height:200vh"></div>
+
+</body>
+</html>

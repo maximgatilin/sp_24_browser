@@ -1,0 +1,30 @@
+<link rel="stylesheet" type="text/css" href="styles.css">
+<div class="expand-container">
+<details>
+  <summary>doc click</summary>
+  <main>
+  	<pre class="code">
+	const handler = (event) => console.log(event.isTrusted ? 
+	'Natural event from user' :
+	'Event dispatched from the code');
+
+	document.addEventListener('click', handler);
+
+	document.dispatchEvent(new Event('click'));
+  	</pre>
+  </main>
+</details>
+<details>
+  <summary>body click</summary>
+  <main>
+  	<pre class="code">
+	document.removeEventListener('click', handler);
+
+	const body = document.querySelector('body');
+
+	body.addEventListener('click', handler);
+
+	body.click();
+  	</pre>
+  </main>
+</details>
