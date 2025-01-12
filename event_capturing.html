@@ -62,7 +62,7 @@
   </main>
 </details>
 <details>
-  <summary>stop propagation</summary>
+  <summary>stop propagation bubbling</summary>
   <main>
   	<pre class="code">
 	document.body.addEventListener('click', () => {
@@ -78,6 +78,52 @@
 		event.stopPropagation();
 	});
 
+  	</pre>
+  </main>
+</details>
+<details>
+  <summary>stop propagation capturing</summary>
+  <main>
+  	<pre class="code">
+	document.body.addEventListener(
+		'click',
+		(event) => {
+			console.log('body click!');
+			if (event.altKey) {
+				return;
+			}
+			event.stopPropagation();
+		},
+		true
+	);
+
+	const btn = document.querySelector('button');
+	button.addEventListener('click', (event) => {
+		console.log('button click!');
+	});
+  	</pre>
+  </main>
+</details>
+<details>
+  <summary>immediate propagation</summary>
+  <main>
+  	<pre class="code">
+	document.body.addEventListener(
+		'click',
+		(event) => {console.log('body click!')}
+	);
+
+	const btn = document.querySelector('button');
+	button.addEventListener('click', (event) => {
+		console.log('button click!');
+		event.stopImmediatePropagation();
+	});
+	button.addEventListener('click', (event) => {
+		console.log('button click 2!');
+	});
+	button.addEventListener('click', (event) => {
+		console.log('button click 3!');
+	});
   	</pre>
   </main>
 </details>

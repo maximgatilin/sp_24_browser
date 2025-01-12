@@ -1,0 +1,26 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<pre class="code">
+	const myWorker = new Worker('square_worker.js');
+
+
+	myWorker.addEventListener('message', (e) => {
+		console.log('Сообщение от воркера', e.data);
+	});
+
+	myWorker.postMessage(5);
+
+	myWorker.onmessage = function (e) {
+	  console.log('обработчик в основном потоке:', e.data)
+	}
+
+
+</pre>
+
+</body>
+</html>

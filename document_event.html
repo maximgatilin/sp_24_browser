@@ -1,15 +1,34 @@
 <link rel="stylesheet" type="text/css" href="styles.css">
-<pre class="code">
-	const handler = (event) => console.log(event.type, ' fired');
+<div class="expand-container">
+<details>
+  <summary>click listener</summary>
+  <main>
+  	<pre class="code">
+  	const handler = (event) => console.log(event.type, ' fired');
+	document.addEventListener('click', handler);
+	document.removeEventListener('click', handler);
+  	</pre>
+  </main>
+</details>
+<details>
+  <summary>onclick</summary>
+  <main>
+  	<pre class="code">
+	document.onclick = handler;
+	document.onclick = undefined
+  	</pre>
+  </main>
+</details>
+<details>
+  <summary>dispatch event</summary>
+  <main>
+  	<pre class="code">
 	document.addEventListener('myTestEvent', handler);
 
 	document.dispatchEvent(new Event('myTestEvent'));
 
 	document.removeEventListener('myTestEvent', handler);
-
-	document.addEventListener('click', handler);
-	document.removeEventListener('click', handler);
-
-	document.onclick = handler;
-	document.onclick = undefined
-</pre>
+  	</pre>
+  </main>
+</details>
+</div>
