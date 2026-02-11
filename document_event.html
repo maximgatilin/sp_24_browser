@@ -1,4 +1,5 @@
 <link rel="stylesheet" type="text/css" href="styles.css">
+<script src="common.js" defer></script>
 <div class="expand-container">
 <details>
   <summary>click listener</summary>
@@ -6,8 +7,10 @@
   	<pre class="code">
   	const handler = (event) => console.log(event.type, ' fired');
 	document.addEventListener('click', handler);
-	document.removeEventListener('click', handler);
   	</pre>
+	<pre class="code">
+	document.removeEventListener('click', handler);
+	</pre>
   </main>
 </details>
 <details>
@@ -15,8 +18,10 @@
   <main>
   	<pre class="code">
 	document.onclick = handler;
-	document.onclick = undefined
   	</pre>
+	<pre class="code">
+	document.onclick = undefined
+	</pre>
   </main>
 </details>
 <details>
@@ -24,11 +29,11 @@
   <main>
   	<pre class="code">
 	document.addEventListener('myTestEvent', handler);
-
 	document.dispatchEvent(new Event('myTestEvent'));
-
-	document.removeEventListener('myTestEvent', handler);
   	</pre>
-  </main>
+	<pre class="code">
+	document.removeEventListener('myTestEvent', handler);
+	</pre>
+</main>
 </details>
 </div>
