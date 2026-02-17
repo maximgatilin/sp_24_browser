@@ -2,6 +2,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	<meta charset="utf-8">
+	<script src="common.js" defer></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -20,15 +21,18 @@
   	<pre class="code">
 	const container = document.querySelector('#container');
 	container.childNodes
-
+  	</pre>
+	<pre class="code">
 	container.appendChild(new Text('Новый текст'));
 	container.childNodes
-
+	</pre>
+	<pre class="code">
 	container.attributes
-
 	container.attributes['some-attr'].childNodes
+	</pre>
+	<pre class="code">
 	container.attributes['some-attr'].appendChild(new Text('Новый текст'))
-  	</pre>
+	</pre>
   </main>
 </details>
 <details>
@@ -38,37 +42,43 @@
 	const container = document.querySelector('#container');
 	console.log('Ноды:', container.childNodes);
 	console.log('Элементы:', container.children);
-
+  	</pre>
+	<pre class="code">
 	container.appendChild(new Text('Новый текст'));
 	console.log('Ноды:', container.childNodes);
 	console.log('Элементы:', container.children);
-
+	</pre>
+	<pre class="code">
 	container.appendChild(document.createElement('div'));
 	console.log('Ноды:', container.childNodes);
 	console.log('Элементы:', container.children);
-
+	</pre>
+	<pre class="code">
 	container.append(document.createElement('div'));
 	console.log('Ноды:', container.childNodes);
 	console.log('Элементы:', container.children);
-
+	</pre>
+	<pre class="code">
 	const btn = container.querySelector('button');
 	console.log(btn);
 	console.log('Ноды:', btn.childNodes);
 	console.log('Элементы:', btn.children);
-  	</pre>
+	</pre>
   </main>
 </details>
 <details>
   <summary>html collection</summary>
   <main>
   	<pre class="code">
-  const container = document.querySelector('#container');
-  container.childNodes[0];
-  container.childNodes.filter(() => true);
-  for (let item of container.childNodes) {
-  	console.log(item);
-  }
+	const container = document.querySelector('#container');
+	container.childNodes[0];
+	container.childNodes.filter(() => true);
   	</pre>
+	<pre class="code">
+	for (let item of container.childNodes) {
+		console.log(item);
+	}
+	</pre>
   </main>
 </details>
 </div>

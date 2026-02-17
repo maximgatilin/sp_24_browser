@@ -2,6 +2,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	<meta charset="utf-8">
+	<script src="common.js" defer></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -14,12 +15,15 @@
 	});
 
 	myWorker.postMessage(5);
+</pre>
+<pre class="code">
+	const myWorker = new Worker('square_worker.js');
+
+	myWorker.postMessage(5);
 
 	myWorker.onmessage = function (e) {
 	  console.log('обработчик в основном потоке:', e.data)
 	}
-
-
 </pre>
 
 </body>
